@@ -6,7 +6,7 @@ public class Ejercicio1 {
 
         System.out.println("Probando commits con Jenkins y CI");
         System.out.println("check");
-        System.out.println("check 2");
+        //System.out.println("check 2");
 
     }
 
