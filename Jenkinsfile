@@ -1,11 +1,10 @@
-/* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'docker/welcome-to-docker:latest' } }
+    agent { docker { image 'maven:3.9.4-eclipse-temurin-17-alpine' } }
     stages {
         stage('build') {
             steps {
                 sh 'mvn --version'
-                echo 'Prueba 1'
+                echo 'prueba 1'
             }
         }
     }
