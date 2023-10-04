@@ -1,11 +1,22 @@
 pipeline {
-    agent { docker { image 'maven:3.9.4-eclipse-temurin-17-alpine' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Polling Repositorio') {
             steps {
-                sh 'mvn --version'
-                echo 'prueba 1'
+                git branch: 'main', credentialsId: '287604c8-6a74-443e-bed0-96acf3747a4e', url: 'https://github.com/Evocuer/CI-CD-QA'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Lectura y polling de repositorio exitosa'
+        }
+        failure {
+            echo 'la lectura ha fallado'
+        }
+        always{
+            echo 'Buen dia!'
         }
     }
 }
